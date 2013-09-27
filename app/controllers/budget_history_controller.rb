@@ -1,0 +1,2 @@
+class BudgetHistoryController < ApplicationController
+end

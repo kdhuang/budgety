@@ -1,4 +1,10 @@
 .row-fluid
     .span12
         .h1
-            = "Hello World"
+            = "Budgety"
+        = form_tag(:method => "post") do
+            %input{:type => "text", :placeholder =>"username", :name => "username"}
+            %br
+            %input{:type => "password", :placeholder =>"password", :name => "password"}
+            %br
+            %button.btn.btn-primary{:type => "submit"} Login
