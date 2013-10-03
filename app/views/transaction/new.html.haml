@@ -1,1 +1,12 @@
 = "new"
+
+= form_tag({:controller => "transaction", :action => "new"},:method => "post") do
+    %input{:type => "text", :placeholder =>"name", :name => "name"}
+    %br
+    %input{:type => "textarea", :placeholder =>"description", :name => "description"}
+    %br
+    %input{:type => "text", :placeholder =>"amount", :name => "amount"}
+    %br
+    %input{:type => "date", :placeholder =>"date", :name => "date"}
+    %br
+    %button.btn.btn-primary{:type => "submit"} Add
