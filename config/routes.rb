@@ -3,6 +3,10 @@ Budgety::Application.routes.draw do
   # first created -> highest priority.
 
   resources :entries
+
+  match '/login' => "user#login", :as => :login
+
+  match '/home' => "index#home", :as => :home
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action

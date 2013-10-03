@@ -2,8 +2,8 @@
     .span12
         .h1
             = "Budgety"
-        = form_tag(:method => "post") do
-            %input{:type => "text", :placeholder =>"username", :name => "username"}
+        = form_tag({:controller => "user", :action => "login"},:method => "post") do
+            %input{:type => "text", :placeholder =>"name", :name => "name"}
             %br
             %input{:type => "password", :placeholder =>"password", :name => "password"}
             %br
