@@ -1,0 +1,6 @@
+= "new"
+
+= form_tag({:controller => "budget_history", :action => "new"},:method => "post") do
+    %input{:type => "text", :placeholder =>"budget", :name => "budget"}
+    %br
+    %button.btn.btn-primary{:type => "submit"} Add

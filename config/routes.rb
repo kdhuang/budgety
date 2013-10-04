@@ -8,7 +8,10 @@ Budgety::Application.routes.draw do
   match '/logout' => "user#logout", :as => :logout
 
   match '/home' => "index#home", :as => :home
-  match '/new' => "transaction#new", :as => :new
+
+  match '/t/new' => "transaction#new", :as => :new_transaction
+
+  match '/b/new' => "budget_history#new", :as => :new_budget
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
