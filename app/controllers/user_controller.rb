@@ -1,4 +1,7 @@
 class UserController < ApplicationController
+
+  before_filter :login_required?, :except => [:login, :logout, :index]
+
 	def login
 		if params[:name]
 			@user = User.find_by_name(params[:name])
@@ -26,5 +29,12 @@ class UserController < ApplicationController
     def logout
     	session[:name] = nil
     	redirect_to root_path
+    end
+
+    def index
+      if session[:user]
+        redirect_to :root_path
+      end
+    	redirect_to :root_path
     end
 end

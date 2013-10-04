@@ -1,22 +1,18 @@
 class TransactionController < ApplicationController
-    def index
-        redirect_to root_url
-    end
 
-    def new(name, description, amount, date)
+    before_filter :login_required?, :except => [:login, :logout, :index]
+
+    def new
     	new_entry = Transaction.new
-    	new_entry.name = name
-    	new_entry.description = description
-    	new_entry.amount = amount
-    	new_entry.date = date
+    	new_entry.name = params[:name]
+    	new_entry.description = params[:description]
+    	new_entry.amount = params[:amount]
+    	new_entry.date = params[:date]
     	new_entry.save
     	#call to subtract from budget
     end
 
     def edit
-    end
-
-    def create
     end
 
     def show
