@@ -20,5 +20,4 @@ class BudgetHistoryController < ApplicationController
 	def show
 
 	end
-	
 end

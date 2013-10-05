@@ -1,1 +1,2 @@
-- test flash error message
+- redirect to login page when not logged in
+- fix flash error message format

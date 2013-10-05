@@ -1,4 +1,4 @@
 .row-fluid
     .span12
         .h1
-            = "home"
+            = "$" + number_with_precision(@current_budget, precision: 2)

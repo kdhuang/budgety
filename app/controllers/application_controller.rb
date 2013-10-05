@@ -9,4 +9,10 @@ class ApplicationController < ActionController::Base
 		redirect_to :controller => "index", :action => "index"
 		return true
 	end
+
+	helper_method :current_user
+
+	def current_user
+		@current_user ||= User.find_by_name(session[:name]) if session[:name]
+	end
 end
