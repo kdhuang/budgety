@@ -1,0 +1,6 @@
+= "Update your budget"
+
+= form_tag({:controller => "budget_history", :action => "update"},:method => "post") do
+    %input{:type => "text", :placeholder =>"e.g. 100", :name => "budget"}
+    %br
+    %button.btn.btn-primary{:type => "submit"} Update

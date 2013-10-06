@@ -10,8 +10,11 @@ Budgety::Application.routes.draw do
   match '/home' => "index#home", :as => :home
 
   match '/t/new' => "transaction#new", :as => :new_transaction
+  match '/t/edit' => "transaction#edit", :as => :edit_transaction
+  match '/t/show' => "transaction#show", :as => :show_transaction
 
   match '/b/new' => "budget_history#new", :as => :new_budget
+  match '/b/update' => "budget_history#update", :as => :update_budget
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action

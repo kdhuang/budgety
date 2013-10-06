@@ -1,2 +1,7 @@
-- redirect to login page when not logged in
-- fix flash error message format
+- handle recalculate if budget changes for the month
+- edit transaction page
+- show current months transactions under current budget
+- page that shows all transactions by month
+- validations (budget/transaction fields exist)
+- add new bootstrap (make page width smaller, add glyphicons, font size, placement, flash message)
+- make color of updated budget red if over budget
