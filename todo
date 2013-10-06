@@ -1,3 +1,4 @@
+- calculated budget to current budgets table
 - handle recalculate if budget changes for the month
 - edit transaction page
 - show current months transactions under current budget

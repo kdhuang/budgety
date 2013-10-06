@@ -9,7 +9,12 @@ class BudgetHistoryController < ApplicationController
 			budget.current = true
 			budget.user_id = current_user.id
 			if budget.save
-				redirect_to home_path
+				new_current_budget = CurrentBudget.new
+				new_current_budget.budget = budget.budget
+				new_current_budget.user_id = current_user.id
+				if new_current_budget.save
+					redirect_to home_path
+				end
 			end
 		end
 	end
@@ -23,9 +28,10 @@ class BudgetHistoryController < ApplicationController
 			budget.user_id = current_user.id
 			if budget.save
 				prev_budget.current = false
-				prev_budget.save
-				# call recalculate here
-				redirect_to home_path
+				if prev_budget.save
+					CurrentBudget.calculate
+					redirect_to home_path
+				end
 			end
 		end
 	end
