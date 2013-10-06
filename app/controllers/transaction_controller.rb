@@ -10,13 +10,23 @@ class TransactionController < ApplicationController
             new_entry.amount = params[:amount]
             new_entry.date = params[:date]
             if new_entry.save
+                CurrentBudget.subtract(current_user,new_entry.amount)
                 redirect_to home_path
             end
-    	#call to subtract from budget
+    	end
     end
 
     def edit
         if request.post?
+            # entry = Transaction.
+            # entry.name = params[:name]
+            # entry.description = params[:description]
+            # entry.amount = params[:amount]
+            # entry.date = params[:date]
+            # if entry.save
+            #     CurrentBudget.subtract(entry.amount)
+            #     redirect_to home_path
+            # end
         end
     end
 
