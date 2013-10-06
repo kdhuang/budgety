@@ -1,4 +1,6 @@
 .h1
     = "$" + number_with_precision(@current_budget, precision: 2)
-    %br
-    = link_to "new transaction", "/t/new"
+%br
+= link_to "update budget", "/b/update"
+%br
+= link_to "new transaction", "/t/new"

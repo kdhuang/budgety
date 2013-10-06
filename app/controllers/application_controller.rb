@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
 		return true
 	end
 
-	helper_method :current_user
+	helper_method :current_user, :current_month
 
 	def current_user
 		@current_user ||= User.find_by_name(session[:name]) if session[:name]

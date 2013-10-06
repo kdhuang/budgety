@@ -29,7 +29,7 @@ class BudgetHistoryController < ApplicationController
 			if budget.save
 				prev_budget.current = false
 				if prev_budget.save
-					CurrentBudget.recalculate
+					CurrentBudget.recalculate(current_user, budget.budget)
 					redirect_to home_path
 				end
 			end

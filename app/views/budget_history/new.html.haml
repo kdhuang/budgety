@@ -1,6 +1,6 @@
 = "Enter a budget to begin"
 
 = form_tag({:controller => "budget_history", :action => "new"},:method => "post") do
-    %input{:type => "text", :placeholder =>"e.g. 100", :name => "budget"}
+    = text_field_tag "budget", "", {placeholder: "amount (e.g. 100)"}
     %br
     %button.btn.btn-primary{:type => "submit"} Add

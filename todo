@@ -1,4 +1,3 @@
-- calculated budget to current budgets table
 - handle recalculate if budget changes for the month
 - edit transaction page
 - show current months transactions under current budget
@@ -6,3 +5,5 @@
 - validations (budget/transaction fields exist)
 - add new bootstrap (make page width smaller, add glyphicons, font size, placement, flash message)
 - make color of updated budget red if over budget
+- http://asciicasts.com/episodes/29-group-by-month
+Transaction.all.group_by { |m| m.date.beginning_of_month }
