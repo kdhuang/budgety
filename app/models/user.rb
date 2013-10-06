@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
 	has_many :budget_histories
 	has_many :transactions
+	has_one :current_budgets
 
 	def self.authenticate(name,password)
 		user = find_by_name(name)

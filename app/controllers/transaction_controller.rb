@@ -16,6 +16,8 @@ class TransactionController < ApplicationController
     end
 
     def edit
+        if request.post?
+        end
     end
 
     def show
