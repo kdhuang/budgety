@@ -31,6 +31,9 @@ class TransactionController < ApplicationController
         end
     end
 
+    def delete
+    end
+
     def show
     end
 
