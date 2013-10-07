@@ -1,8 +1,10 @@
 .h1
     = "Budgety"
 = form_tag({:controller => "user", :action => "login"},:method => "post") do
+    = label "name", "Name:"
     = text_field_tag "name", "", {placeholder: "name"}
     %br
+    = label "password", "Password:"
     = password_field_tag "password", "", {placeholder: "password"}
     %br
     %button.btn.btn-primary{:type => "submit"} Login

@@ -1,12 +1,16 @@
 = "Enter new transaction"
 
 = form_tag({:controller => "transaction", :action => "new"},:method => "post") do
+    = label "name", "Name:"
     = text_field_tag "name", "", {placeholder: "name"}
     %br
+    = label "description", "Description:"
     = text_area_tag "description", "", {placeholder: "description"}
     %br
+    = label "amount", "Amount:"
     = text_field_tag "amount", "", {placeholder: "amount"}
     %br
+    = label "date", "Purchase Date:"
     = date_select "date", "", {start_year: 10.years.ago.year, end_year: Date.today.year, default: Date.today}
     %br
-    %button.btn.btn-primary{:type => "submit"} Add
+    %button.btn.btn-primary{:type => "submit"} Submit
