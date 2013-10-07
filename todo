@@ -1,7 +1,6 @@
-- edit transaction page (fill in known info)
-- show current months transactions under current budget
 - page that shows all transactions by month
 - validations (budget/transaction fields exist)
 - add new bootstrap (make page width smaller, add glyphicons, font size, placement, flash message)
 - make color of updated budget red if over budget
 - http://asciicasts.com/episodes/29-group-by-month
+- hash the object id from URL when passed for edit and delete

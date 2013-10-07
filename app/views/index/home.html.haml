@@ -26,6 +26,6 @@
                 %td $ #{number_with_precision(c.amount, precision: 2)}
                 %td #{c.date.to_formatted_s(:long)}
                 %td
-                    = button_to "edit", edit_transaction_path({:transaction => c.id}), :class => "btn btn-primary"
+                    = button_to "edit", edit_transaction_path({:transaction => c}), :class => "btn btn-primary"
                 %td 
-                    = button_to "delete", delete_transaction_path({:transaction => c.id}), :class => "btn btn-danger"
+                    = button_to "delete", delete_transaction_path({:transaction => c}), :class => "btn btn-danger", :confirm => "This transaction will be deleted."

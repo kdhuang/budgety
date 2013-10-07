@@ -2,8 +2,6 @@ Budgety::Application.routes.draw do
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
-  resources :entries
-
   match '/login' => "user#login", :as => :login
   match '/logout' => "user#logout", :as => :logout
 

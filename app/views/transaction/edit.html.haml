@@ -2,15 +2,15 @@
 
 = form_tag({:controller => "transaction", :action => "edit"},:method => "post") do
     = label "name", "Name:"
-    = text_field_tag "name", "", {placeholder: "name"}
+    = text_field_tag "name", "#{@transaction.name}"
     %br
     = label "description", "Description:"
-    = text_area_tag "description", "", {placeholder: "description"}
+    = text_area_tag "description", "#{@transaction.description}"
     %br
     = label "amount", "Amount:"
-    = text_field_tag "amount", "", {placeholder: "amount"}
+    = text_field_tag "amount", "#{@transaction.amount}"
     %br
     = label "date", "Purchase Date:"
-    = date_select "date", "", {start_year: 10.years.ago.year, end_year: Date.today.year, default: Date.today}
+    = date_select "date", "", {start_year: 10.years.ago.year, end_year: Date.today.year, default: @transaction.date}
     %br
     %button.btn.btn-primary{:type => "submit"} Update

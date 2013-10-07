@@ -18,16 +18,18 @@ class TransactionController < ApplicationController
     end
 
     def edit
+        @transaction = Transaction.find(params[:transaction])
         if request.post?
-            # entry = Transaction.
-            # entry.name = params[:name]
-            # entry.description = params[:description]
-            # entry.amount = params[:amount]
-            # entry.date = params[:date]
-            # if entry.save
-            #     CurrentBudget.subtract(entry.amount)
-            #     redirect_to home_path
-            # end
+            entry = @transaction
+            entry.name = params[:name]
+            entry.description = params[:description]
+            entry.amount = params[:amount]
+            entry.date = params[:date]
+            if entry.save
+                amount_difference = entry.amount - @transaction.amount
+                CurrentBudget.subtract(amount_difference)
+                redirect_to home_path
+            end
         end
     end
 
