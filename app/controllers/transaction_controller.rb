@@ -29,9 +29,6 @@ class TransactionController < ApplicationController
             entry.name = params[:name]
             entry.description = params[:description]
             entry.amount = params[:amount]
-            p "===+++++++++++"
-            p params[:old_date] + "(1i)"
-            p '#{params[:old_date]}(1i)'
             entry.date = Date.new(params[:newdate][params[:old_date] + '(1i)'].to_i, params[:newdate][params[:old_date] + '(2i)'].to_i, params[:newdate][params[:old_date] + '(3i)'].to_i)
             if entry.save
                 amount_difference = entry.amount.to_f - params[:old_amount].to_f
@@ -42,6 +39,13 @@ class TransactionController < ApplicationController
     end
 
     def delete
+        if request.post?
+            entry = Transaction.find(params[:transaction])
+            if entry.destroy
+                # do calculation here
+            end
+            redirect_to home_path
+        end
     end
 
     def show
