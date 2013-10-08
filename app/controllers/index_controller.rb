@@ -6,7 +6,11 @@ class IndexController < ApplicationController
 		#if over budget -- red text
 		if BudgetHistory.find_by_user_id(current_user.id) && CurrentBudget.find_by_user_id(current_user.id)
 			@current_budget = CurrentBudget.find_by_user_id(current_user.id).budget.to_s
-			@current_month_transactions = Transaction.all.group_by {|t| t.date.beginning_of_month}[Date.current.beginning_of_month]
+			if Transaction.find_by_user_id(current_user.id)
+				@current_month_transactions = Transaction.find_by_user_id(current_user.id).group_by {|t| t.date.beginning_of_month}[Date.current.beginning_of_month]
+			else
+				@current_month_transactions = nil
+			end
 		else
 			redirect_to new_budget_path
 		end

@@ -7,23 +7,27 @@
 %br
 = link_to "show all", "/t/show"
 
-%table.table.table-striped.table-hover
-    %thead
-        %tr 
-            %th Name
-            %th Description
-            %th Amount
-            %th Date
-            %th{:style => "width: 50px"}
-            %th{:style => "width: 50px"}
-    %tbody
-        - @current_month_transactions.each do |c|
-            %tr
-                %td #{c.name}
-                %td #{c.description}
-                %td $ #{number_with_precision(c.amount, precision: 2)}
-                %td #{c.date.to_formatted_s(:long)}
-                %td
-                    = button_to "edit", edit_transaction_path({:transaction => c}), :class => "btn btn-primary"
-                %td 
-                    = button_to "delete", delete_transaction_path({:transaction => c}), :class => "btn btn-danger", :confirm => "This transaction will be deleted."
+%br
+- if @current_month_transactions
+    %table.table.table-striped.table-hover
+        %thead
+            %tr 
+                %th Name
+                %th Description
+                %th Amount
+                %th Date
+                %th{:style => "width: 50px"}
+                %th{:style => "width: 50px"}
+        %tbody
+            - @current_month_transactions.each do |c|
+                %tr
+                    %td #{c.name}
+                    %td #{c.description}
+                    %td $ #{number_with_precision(c.amount, precision: 2)}
+                    %td #{c.date.to_formatted_s(:long)}
+                    %td
+                        = button_to "edit", edit_transaction_path({:transaction => c}), :class => "btn btn-primary"
+                    %td 
+                        = button_to "delete", delete_transaction_path({:transaction => c}), :class => "btn btn-danger", :confirm => "This transaction will be deleted."
+- else
+    = "Add a transaction"
