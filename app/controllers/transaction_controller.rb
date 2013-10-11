@@ -41,8 +41,9 @@ class TransactionController < ApplicationController
     def delete
         if request.post?
             entry = Transaction.find(params[:transaction])
+            amount = entry.amount.to_f * -1
             if entry.destroy
-                # do calculation here
+                CurrentBudget.subtract(current_user, amount)
             end
             redirect_to home_path
         end
