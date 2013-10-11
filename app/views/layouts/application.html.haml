@@ -12,13 +12,17 @@
 
     %body
         - if flash[:failed_login]
-            .alert.alert-error.message
+            .alert.alert-danger.message
                 %a.close{"data-dismiss" => "alert", :style => "font-family: helvetica neue, arial;"} x
                 = flash[:failed_login]
-        .row-fluid
-            .span10
+        .container
+            .col-md-2
+            .col-md-8
                 .container
-                    .span3.text-right
-                        - unless session[:name].nil?
-                            = link_to "Log out", "/logout"
-                    =yield 
+                    .page-header
+                        .span3.text-right
+                            - unless session[:name].nil?
+                                = button_to "Log out", "/logout", :class => "btn"
+                    .span5            
+                        = yield
+            .col-md-2

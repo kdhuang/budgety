@@ -1,10 +1,13 @@
-.h1
+.h1{:style => "font-size:82px;"}
     = "Budgety"
-= form_tag({:controller => "user", :action => "login"},:method => "post") do
-    = label "name", "Name:"
-    = text_field_tag "name", "", {placeholder: "name"}
-    %br
-    = label "password", "Password:"
-    = password_field_tag "password", "", {placeholder: "password"}
-    %br
-    %button.btn.btn-primary{:type => "submit"} Login
+
+.jumbotron
+    .container
+        = form_tag({:controller => "user", :action => "login"},:method => "post") do
+            = label "name", "Name:"
+            = text_field_tag "name", "", {placeholder: "name"}
+            %br
+            = label "password", "Password:"
+            = password_field_tag "password", "", {placeholder: "password"}
+            %br
+            %button.btn.btn-primary{:type => "submit"} Login
