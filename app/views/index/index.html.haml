@@ -1,13 +1,13 @@
-.h1{:style => "font-size:82px;"}
+.h1{:style => "font-size:82px; text-align:center;"}
     = "Budgety"
 
-.jumbotron
-    .container
+.login-pos
+    .well.login
         = form_tag({:controller => "user", :action => "login"},:method => "post") do
             = label "name", "Name:"
-            = text_field_tag "name", "", {placeholder: "name"}
+            = text_field_tag "name", ""
             %br
             = label "password", "Password:"
-            = password_field_tag "password", "", {placeholder: "password"}
+            = password_field_tag "password", ""
             %br
             %button.btn.btn-primary{:type => "submit"} Login

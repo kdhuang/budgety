@@ -5,3 +5,12 @@
  *= require_self
  *= require_tree . 
 */
+
+.login-pos {
+	margin-top:15%;
+}
+
+.login {
+	width:215px;
+	margin:20px auto;
+}
