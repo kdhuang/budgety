@@ -40,3 +40,4 @@ group :production do
 end
 
 gem 'haml-rails'
+gem "heroku", "~> 3.0.0"
