@@ -1,13 +1,12 @@
 .h1{:style => "font-size:100px; text-align:center;"}
     = "$" + number_with_precision(@current_budget, precision: 2)
 %br
-= link_to "update budget", "/b/update"
 %br
-= link_to "new transaction", "/t/new"
-%br
-.text-right
+.text-left.col-md-6
+    = button_to "new transaction", "/t/new", :class => "btn btn-sm btn-success", :method => :get
+.text-right.col-md-6
     = link_to "show all", "/t/show"
-
+%br
 %br
 - if @current_month_transactions
     %table.table.table-striped.table-hover

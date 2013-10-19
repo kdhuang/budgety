@@ -20,9 +20,13 @@
             .col-md-8
                 .container
                     .page-header
-                        .span3.text-right
+                        .text-right
                             - unless session[:name].nil?
-                                = button_to "Log out", "/logout", :class => "btn"
+                                .btn
+                                    = button_to "update budget", "/b/update", :class => "btn"
+                                .btn 
+                                    = button_to "Log out", "/logout", :class => "btn"
+
                     .span5            
                         = yield
             .col-md-2
