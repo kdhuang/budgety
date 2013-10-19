@@ -1,5 +1,9 @@
 .h1{:style => "font-size:100px; text-align:center;"}
-    = "$" + number_with_precision(@current_budget, precision: 2)
+    - if @over_budget
+        .div{:style => "color:red"}
+            = "$" + number_with_precision(@current_budget, precision: 2)
+    - else
+        = "$" + number_with_precision(@current_budget, precision: 2)
 %br
 %br
 .text-left.col-md-6
