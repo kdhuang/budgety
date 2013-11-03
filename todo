@@ -3,3 +3,5 @@
 - http://asciicasts.com/episodes/29-group-by-month
 - hash the object id from URL when passed for edit and delete
 - add beta request w/ email on home page
+- hide "update budget" from all pages except for home
+http://collectiveidea.com/blog/archives/2012/11/26/setup-a-high-volume-site-on-heroku-for-free/

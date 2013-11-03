@@ -10,6 +10,10 @@ class TransactionController < ApplicationController
             new_entry.amount = params[:amount]
             new_entry.date = Date.new(params[:date]['(1i)'].to_i, params[:date]['(2i)'].to_i, params[:date]['(3i)'].to_i)
             new_entry.user_id = current_user.id
+            p "++++++++++++++++++++++"
+            p new_entry.errors
+            p request.fullpath
+            p request.path
             if new_entry.save
                 CurrentBudget.subtract(current_user,new_entry.amount)
                 redirect_to home_path
