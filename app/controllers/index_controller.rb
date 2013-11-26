@@ -3,7 +3,6 @@ class IndexController < ApplicationController
 	before_filter :login_required?, :except => [:login, :logout, :index]
 
 	def home
-		#if over budget -- red text
 		if BudgetHistory.find_by_user_id(current_user.id) && CurrentBudget.find_by_user_id(current_user.id)
 			budget = CurrentBudget.find_by_user_id(current_user.id).budget
 			if budget < 0
