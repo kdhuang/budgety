@@ -60,7 +60,6 @@ class TransactionController < ApplicationController
         Transaction.find_all_by_user_id(current_user).group_by{|t| t.date.beginning_of_month}.each do |k,v|
             @months_w_transactions << k
             #get budget for month and then calculate
-        end
             @budgets[k]
             @usage[k] 
         end
