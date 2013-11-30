@@ -1,5 +1,11 @@
-= "Enter new transaction"
+= link_to "home", "/"
+= " > "
+= link_to "new transaction", "/t/new"
 
+.h1{:style => "font-size:64px; text-align:center;"}
+    = "New Transaction"
+
+%br
 = form_tag({:controller => "transaction", :action => "new"},:method => "post") do
     = label "name", "Name:"
     = text_field_tag "name", "", {placeholder: "name"}

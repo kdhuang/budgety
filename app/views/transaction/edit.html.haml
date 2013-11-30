@@ -1,5 +1,11 @@
-= "Edit transaction"
+= link_to "home", "/"
+= " > "
+= link_to "edit transaction", "/t/edit"
 
+.h1{:style => "font-size:64px; text-align:center;"}
+    = "Edit Transaction"
+
+%br
 = form_tag({:controller => "transaction", :action => "edit"},:method => "post") do
     = label "name", "Name:"
     = text_field_tag "name", "#{@name}"

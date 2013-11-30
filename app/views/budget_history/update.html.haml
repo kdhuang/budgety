@@ -2,8 +2,10 @@
 = " > "
 = link_to "update budget", "/t/update"
 
-= "Update your budget"
+.h1{:style => "font-size:64px; text-align:center;"}
+    = "Update Budget"
 
+%br
 = form_tag({:controller => "budget_history", :action => "update"},:method => "post") do
     = label "budget", "Budget:"
     = text_field_tag "budget", "", {placeholder: "amount (e.g. 100)"}
