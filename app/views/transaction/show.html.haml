@@ -5,9 +5,11 @@
     %thead
         %tr 
             %th Month
-            %th Description
+            %th Remaining
+            %th Budget
     %tbody
         - @months_w_transactions.each do |t|
             %tr
                 %td #{t.to_formatted_s(:long)}
-                /%td #{t.description}
+                /%td #{@transactions[t][1].description}
+                /%td 
