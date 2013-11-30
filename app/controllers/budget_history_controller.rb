@@ -35,4 +35,9 @@ class BudgetHistoryController < ApplicationController
 			end
 		end
 	end
+
+	def reset
+		CurrentBudget.recalculate(current_user, BudgetHistory.where("user_id = '#{current_user.id}'").last.budget)
+		redirect_to home_path
+	end
 end
