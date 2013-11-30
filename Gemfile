@@ -41,4 +41,4 @@ end
 
 gem 'haml-rails'
 gem "heroku", "~> 3.0.0"
-#gem "clockwork"
+gem "clockwork"
