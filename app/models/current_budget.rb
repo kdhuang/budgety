@@ -5,8 +5,10 @@ class CurrentBudget < ActiveRecord::Base
 		current_month_transactions = Transaction.all.group_by { |t| t.date.beginning_of_month }[Date.current.beginning_of_month]
 		current = CurrentBudget.find_by_user_id(user.id)
 		current.budget = new_budget
-		current_month_transactions.each do |d|
-			current.budget = current.budget - d.amount.to_f
+		if current_month_transactions != nil
+			current_month_transactions.each do |d|
+				current.budget = current.budget - d.amount.to_f
+			end
 		end
 		current.save
 	end
