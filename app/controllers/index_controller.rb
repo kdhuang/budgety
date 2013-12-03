@@ -9,10 +9,16 @@ class IndexController < ApplicationController
 				@over_budget = true
 			end
 			@current_budget = budget.abs.to_s
+			all_transactions = Transaction.find_all_by_user_id(current_user.id).group_by {|t| t.date.beginning_of_month}
 			if Transaction.find_by_user_id(current_user.id)
-				@current_month_transactions = Transaction.find_all_by_user_id(current_user.id).group_by {|t| t.date.beginning_of_month}[Date.current.beginning_of_month]
+				@current_month_transactions = all_transactions[Date.current.beginning_of_month]
 			else
-				@current_month_transactions = nil
+				@current_month_transactions = false
+				if all_transactions.empty?
+					@new_user = true
+				else
+					@new_user = false
+				end
 			end
 		else
 			redirect_to new_budget_path

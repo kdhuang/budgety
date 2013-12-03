@@ -34,4 +34,13 @@
                     %td 
                         = button_to "delete", delete_transaction_path({:transaction => c}), :class => "btn btn-danger", :confirm => "This transaction will be deleted."
 - else
-    = "Add a transaction"
+    - if @new_user
+        %br
+        %br
+        .h4{:style => "font-weight:bold; text-align:center;"}
+            = "Add a transaction"
+    -else
+        %br
+        %br
+        .h4{:style => "font-weight:bold; text-align:center;"}
+            = "It's a new month! Reset your budget."
