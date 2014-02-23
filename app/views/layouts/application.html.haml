@@ -22,8 +22,9 @@
                     .page-header
                         .text-right
                             - unless session[:name].nil?
-                                .btn
-                                    = button_to "reset budget", "/b/reset", :class => "btn"
+                                / deprecated - allows manual recalculation of budget on home page. replaced by auto recalculation upon each page load
+                                /.btn
+                                /    = button_to "reset budget", "/b/reset", :class => "btn"
                                 .btn
                                     = button_to "update budget", "/b/update", :class => "btn", :method => :get
                                 .btn 

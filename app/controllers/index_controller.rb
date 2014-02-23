@@ -4,6 +4,7 @@ class IndexController < ApplicationController
 
 	def home
 		if BudgetHistory.find_by_user_id(current_user.id) && CurrentBudget.find_by_user_id(current_user.id)
+			CurrentBudget.recalculate(current_user, BudgetHistory.where("user_id = '#{current_user.id}'").last.budget)
 			budget = CurrentBudget.find_by_user_id(current_user.id).budget
 			if budget < 0
 				@over_budget = true
@@ -14,11 +15,6 @@ class IndexController < ApplicationController
 				@current_month_transactions = all_transactions[Date.current.beginning_of_month]
 			else
 				@current_month_transactions = false
-				if all_transactions.empty?
-					@new_user = true
-				else
-					@new_user = false
-				end
 			end
 		else
 			redirect_to new_budget_path
