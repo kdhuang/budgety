@@ -3,7 +3,7 @@
 = link_to "show all", "/t/show"
 
 .h1{:style => "font-size:64px; text-align:center;"}
-    = "Monthly Budget Archives"
+    = "Budget Archives"
 
 %table.table.table-striped.table-hover
     %thead
@@ -12,8 +12,8 @@
             %th Remaining
             %th Budget
     %tbody
-        - @months_w_transactions.each do |t|
+        - @transaction_months.each do |m,b|
             %tr
-                %td #{t.to_formatted_s(:long)}
-                /%td #{@transactions[t].description}
-                /%td 
+                %td #{m.to_formatted_s(:long)}
+                %td #{number_with_precision(b[0], precision: 2)}
+                %td #{number_with_precision(b[1], precision: 2)}

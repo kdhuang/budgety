@@ -50,13 +50,14 @@ class TransactionController < ApplicationController
     end
 
     def show
-        @months_w_transactions = []
-        @transactions = Hash.new
-        Transaction.find_all_by_user_id(current_user).group_by{|t| t.date.beginning_of_month}.each do |k,v|
-            @months_w_transactions << k
-            #get budget for month and then calculate
-            @transactions[k] = v
-            # get budget for the month first -- then add up all the transactions in the month and subtract from that budget
+        @transaction_months = Hash.new
+        BudgetHistory.all.group_by{|t| t.updated_at.beginning_of_month}.each do |k,v|
+            usage = 0 
+            budget = v.last.budget
+            Transaction.find_all_by_user_id(current_user).group_by{|t| t.date.beginning_of_month}[k.to_date].each do |t|
+                usage += t.amount.to_f
+            end
+            @transaction_months[k.to_date] = [budget-usage, budget]
         end
     end
 

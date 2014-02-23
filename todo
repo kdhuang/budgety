@@ -1,7 +1,8 @@
-- page that shows all transactions by month (budget is last of that month)
+- if current month transactions is empty then auto reset the budget (should signify a new month) -- do this instead of making user manually reset budget!!
+    - hide "update budget" from all pages except for home
+- make show page months links to drill into past usage
 - validations (budget/transaction fields exist)
 - http://asciicasts.com/episodes/29-group-by-month
 - hash the object id from URL when passed for edit and delete
 - add beta request w/ email on home page
-- hide "update budget" from all pages except for home
 http://collectiveidea.com/blog/archives/2012/11/26/setup-a-high-volume-site-on-heroku-for-free/
