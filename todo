@@ -1,3 +1,4 @@
+- on monthly show page - show remaining balance and original budget
 - validations (budget/transaction fields exist)
 - make sure show all page have months listed in chronilogical order
 - http://asciicasts.com/episodes/29-group-by-month

@@ -3,9 +3,13 @@
 = link_to "show", "/t/show"
 = " > "
 = link_to "#{@month}", show_month_transaction_path({:month => "#{@month}"})
+%br
+%br
 
 .h1{:style => "font-size:64px; text-align:center;"}
     = "#{@month.strftime("%B")} #{@month.strftime("%Y")} Archives"
+%br
+%br
 
 %table.table.table-striped.table-hover
     %thead
