@@ -11,6 +11,7 @@ Budgety::Application.routes.draw do
   match '/t/edit' => "transaction#edit", :as => :edit_transaction
   match '/t/show' => "transaction#show", :as => :show_transaction
   match '/t/delete' => "transaction#delete", :as => :delete_transaction
+  match '/t/show_month' => "transaction#show_month", :as => :show_month_transaction
 
   match '/b/new' => "budget_history#new", :as => :new_budget
   match '/b/update' => "budget_history#update", :as => :update_budget

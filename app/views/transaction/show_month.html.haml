@@ -1,0 +1,23 @@
+= link_to "home", "/"
+= " > "
+= link_to "show", "/t/show"
+= " > "
+= link_to "#{@month}", show_month_transaction_path({:month => "#{@month}"})
+
+.h1{:style => "font-size:64px; text-align:center;"}
+    = "#{@month.strftime("%B")} #{@month.strftime("%Y")} Archives"
+
+%table.table.table-striped.table-hover
+    %thead
+        %tr 
+            %th Name
+            %th Description
+            %th Amount
+            %th Date
+    %tbody
+        - @monthly_transactions.each do |c|
+            %tr
+                %td #{c.name}
+                %td #{c.description}
+                %td $ #{number_with_precision(c.amount, precision: 2)}
+                %td #{c.date.to_formatted_s(:long)}

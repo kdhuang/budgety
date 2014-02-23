@@ -62,4 +62,11 @@ class TransactionController < ApplicationController
         end
     end
 
+    def show_month
+        @month = params[:month].to_date
+        @monthly_transactions = Transaction.find_all_by_user_id(current_user).group_by {|t| t.date.beginning_of_month}[@month]
+        return
+        redirect_to show_month_transaction_path
+    end
+
 end

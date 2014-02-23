@@ -1,6 +1,6 @@
 = link_to "home", "/"
 = " > "
-= link_to "show all", "/t/show"
+= link_to "show", "/t/show"
 
 .h1{:style => "font-size:64px; text-align:center;"}
     = "Budget Archives"
@@ -14,6 +14,7 @@
     %tbody
         - @transaction_months.each do |m,b|
             %tr
-                %td #{m.to_formatted_s(:long)}
+                %td
+                    = link_to "#{m.to_formatted_s(:long)}", show_month_transaction_path({:month => m})
                 %td #{number_with_precision(b[0], precision: 2)}
                 %td #{number_with_precision(b[1], precision: 2)}
