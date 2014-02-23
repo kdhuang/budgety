@@ -1,5 +1,3 @@
-- if current month transactions is empty then auto reset the budget (should signify a new month) -- do this instead of making user manually reset budget!!
-    - hide "update budget" from all pages except for home
 - make show page months links to drill into past usage
 - validations (budget/transaction fields exist)
 - http://asciicasts.com/episodes/29-group-by-month
