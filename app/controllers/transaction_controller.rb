@@ -54,6 +54,7 @@ class TransactionController < ApplicationController
         BudgetHistory.find_all_by_user_id(current_user).group_by{|t| t.updated_at.beginning_of_month}.each do |k,v|
             usage = 0 
             budget = v.last.budget
+            next if !Transaction.find_all_by_user_id(current_user).group_by{|t| t.date.beginning_of_month}.keys.include? k.to_date
             Transaction.find_all_by_user_id(current_user).group_by{|t| t.date.beginning_of_month}[k.to_date].each do |t|
                 usage += t.amount.to_f
             end

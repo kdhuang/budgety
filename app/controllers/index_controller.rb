@@ -16,6 +16,13 @@ class IndexController < ApplicationController
 			else
 				@current_month_transactions = false
 			end
+			if !@current_month_transactions
+				budget = BudgetHistory.new
+				budget.budget = BudgetHistory.where(:current => true).find_by_user_id(current_user).budget
+				budget.current = true
+				budget.user_id = current_user.id
+				budget.save
+      		end
 		else
 			redirect_to new_budget_path
 		end
