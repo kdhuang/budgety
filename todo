@@ -1,5 +1,6 @@
 - make show page months links to drill into past usage
 - validations (budget/transaction fields exist)
+- make sure show all page have months listed in chronilogical order
 - http://asciicasts.com/episodes/29-group-by-month
 - hash the object id from URL when passed for edit and delete
 - add beta request w/ email on home page
